@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int test;
+    string temp1,temp2;
+    vector<string> text{};
+    cin >> test;
+
+    for(int i = 0; i < test * 2; i+=2){  // i add 2 because if we use 1 then second and third variable also be changed
+            cin >> temp1;
+            text.push_back(temp1);
+            cin >> temp2;
+            text.push_back(temp2);
+
+            swap(text[i][0],text[i+1][0]); 
+    }
+
+    for(int p = 0; p < text.size(); p = p + 2){ // i add 2 because if we use 1 then third element might be printed twice
+        cout << text[p] << " " << text[p + 1];
+        cout << endl;
+    }
+
+
+}

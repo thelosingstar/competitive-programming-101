@@ -12,7 +12,7 @@ int main(){
             cin >> temp2;
             text.push_back(temp2);
 
-            swap(text[i][0],text[i+1][0]); 
+            swap(text[i][0],text[i+1][0]); // using swap
     }
 
     for(int p = 0; p < text.size(); p = p + 2){ // i add 2 because if we use 1 then third element might be printed twice

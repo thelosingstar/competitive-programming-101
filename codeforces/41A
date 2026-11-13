@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    string case1, case2;
+    cin >> case1 >> case2;
+
+    reverse(case2.begin(),case2.end()); // reverse function from algorithm
+    if(case1 == case2){
+        cout << "YES";
+    }
+    else{
+        cout << "NO";
+    }
+}

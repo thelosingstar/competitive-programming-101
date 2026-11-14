@@ -15,7 +15,7 @@ int main(){
 
     }
     for(int j = 0; j < numbers.size(); j += 3){ // adding 3 instead of 1 because if j is 1 it will check the same triad comparing with another triad
-        if(numbers[j] > numbers[j+1] && numbers[j + 1] > numbers[j+2]){
+        if(numbers[j] < numbers[j+1] && numbers[j + 1] < numbers[j+2]){
                 cout << "STAIR" << endl;
             }
             else if(numbers[j + 1] > numbers[j] && numbers[j+1] > numbers[j+2]){

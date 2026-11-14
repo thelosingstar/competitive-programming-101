@@ -1,47 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main(){
-    string text,temp;
-    int scoreH = 1, scoreE = 1, scoreL = 1, scoreO = 1,scoreEnd = 0; 
+
+int main() {
+    string text;
     cin >> text;
-    vector<string> match{};
-    vector<string> hello = {"h","e","l","l","o"};
-
-    for(int i = 0; i < text.length(); i++){
-        if(text[i] == 'h' && scoreH == 1){
-            temp = text[i]; 
-            match.push_back(temp);
-            scoreH++;
+    
+    string target = "hello";
+    int target_index = 0;
+    
+    for(int i = 0; i < text.length(); i++) {
+        if (text[i] == target[target_index]) {
+            target_index++;
         }
-        else if(text[i] == 'e' && scoreE == 1 && scoreH > 1){
-            temp = text[i]; 
-            match.push_back(temp);
-            scoreE++;
+    
+        if (target_index == 5) {
+            break;
         }
-        else if(text[i] == 'l' && (scoreL == 1 || scoreL == 2) && scoreE > 1){
-            temp = text[i]; 
-            match.push_back(temp);
-            scoreL++;
-        }
-        else if(text[i] == 'o' && scoreO == 1 && scoreL > 2){
-            temp = text[i]; 
-            match.push_back(temp);
-            scoreO++;
-        }
-
-
+    }
+    if (target_index == 5) {
+        cout << "YES\n";
+    } else {
+        cout << "NO\n";
     }
     
-    for(int o = 0; o < match.size(); o++){
-        if(match[o] == hello[o]){
-            scoreEnd++;
-        }
-    }
-
-    if(scoreEnd == 5){
-        cout << "YES" << endl;
-    }
-    else{
-        cout << "NO" << endl;
-    }
+    return 0;
 }

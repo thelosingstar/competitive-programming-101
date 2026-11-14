@@ -15,13 +15,9 @@ int main(){
                                   the character but the length would be the same meaning if input
                                   aeottt then output would be ....t.t.t because the computer is looking
                                   at aeo too*/
+                j--;
             }
-            else if(j > 0){
-                if(temp[j - 1] == vowels[o]){
-                    temp.erase(j-1,1); /* it is neccesary as if the program gets the input aab it removes first a 
-                                        then the index 0 is not checked meaning the second a is left*/
-                }
-            }
+                            
         }
     }
     for(int a = 0; a < temp.length(); a++){

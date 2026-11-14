@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    string temp, temp1;
+    cin >> temp;
+    vector<char> text{};
+    vector<char> vowels = {'a','e','i','o','u','y'}; 
+    for(int i = 0; i < temp.length(); i++){
+        temp[i] = tolower(temp[i]);
+    }
+    for(int o = 0; o < vowels.size(); o++){
+        for(int j = 0; j < temp.length(); j++){
+            if(temp[j] == vowels[o]){
+                temp.erase(j,1); /*using the erase function rather than \0 because \0 will remove
+                                  the character but the length would be the same meaning if input
+                                  aeottt then output would be ....t.t.t because the computer is looking
+                                  at aeo too*/
+            }
+            else if(j > 0){
+                if(temp[j - 1] == vowels[o]){
+                    temp.erase(j-1,1); /* it is neccesary as if the program gets the input aab it removes first a 
+                                        then the index 0 is not checked meaning the second a is left*/
+                }
+            }
+        }
+    }
+    for(int a = 0; a < temp.length(); a++){
+        text.push_back('.'); // addes the . before every character not vowel since we already removed the vowel
+        text.push_back(temp[a]);
+    }
+    for(int i = 0; i < text.size(); i++){
+        cout << text[i];
+    }
+    
+}

@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    string text,temp;
+    int scoreA = 0 , scoreB = 0;
+    cin >> text;
+    temp = text;
+
+    for(int i = 0; i < text.length(); i++){
+        text[i] = tolower(text[i]);  // checks if all of the letters are uppercase
+        if(text[i] != temp[i]){
+            scoreA++;
+        }
+    }
+    for(int i = 0; i < text.length() - 1; i++){ // checks if every letter except the first one are uppercase
+        text[i] = tolower(text[i]);
+        if(text[0] == temp[0] && text[i+1] != temp[i+1]){ / we did i+1 so that if i is 0 it looks at 1
+            scoreB++;
+        }
+    }
+    if(scoreA == text.length()){
+        cout << text;
+    }
+    else if(scoreB == text.length() - 1){
+        text[0] = toupper(text[0]);
+        cout << text;
+    }
+    else{
+        cout << temp;
+    }
+}

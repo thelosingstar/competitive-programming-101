@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int testcases = 0 ,qual = 0;
+    bool win_con = 0;
+    vector<pair<int,int>> pairs{};
+    pair<int,int> temp;
+    cin >> testcases;
+    for(int i = 0; i < testcases; i++){
+        cin >> temp.first >> temp.second;
+        pairs.push_back(temp);
+    }
+    sort(pairs.begin(),pairs.end()); // we sort by price meaning prices go from decreasing to increasing
+    qual = pairs[0].second;
+    for(const auto &p : pairs){
+        if(p.second > qual || p.second == qual){ // if a value is greater than qual we change the value of qual to the value to keep the highest value as a benchmark
+            qual = p.second;
+        }
+        else if(p.second < qual){ // if a value is less than qual indicating higher price lower qual so win_con for alex is true and we can break
+            win_con = true;
+            break;
+        }
+    }
+
+    if(win_con){
+        cout << "Happy Alex";
+    }
+    else{
+        cout << "Poor Alex";
+    }
+}

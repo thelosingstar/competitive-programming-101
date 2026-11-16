@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int Ncoins = 0 , temp = 0 , Tcoins = 0 , sum = 0 , target = 0;
+    vector<int> Vcoin{};
+    cin >> Ncoins;
+
+    for(int i = 0; i < Ncoins; i++){
+        cin >> temp;
+        Vcoin.push_back(temp);
+    }
+    sort(Vcoin.rbegin(), Vcoin.rend());
+    for(int i = 0; i < Vcoin.size(); i++){
+        sum += Vcoin[i];
+    }
+    target = sum / 2;
+    sum = 0;
+
+    for(int i = 0; i < Vcoin.size(); i++){
+        if(sum <= target){
+            sum += Vcoin[i];
+            Tcoins ++;
+        }
+        else if(sum > target){
+            break;
+        }
+    }
+
+    cout << Tcoins;
+
+
+
+
+}

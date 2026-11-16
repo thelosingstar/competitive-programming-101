@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int testcases = 0 , nplank = 0 , temp = 0 , benchmark = 0 , currentmark = 0, tempmark = 0 , hardmark = 0 , index = 0;
+    cin >> testcases >> nplank;
+    vector<int> vplank{};
+
+    for(int i = 0; i < testcases; i++){
+        cin >> temp;
+        vplank.push_back(temp);
+    }
+
+    for(int i = 0; i < nplank; i++){
+        hardmark += vplank[i];
+        index = 1;
+    }
+    for(int i = nplank; i < vplank.size(); i++){
+        if(i == nplank){
+            currentmark = hardmark;
+        }
+        currentmark += vplank[i] - vplank[i - nplank];
+
+        if(hardmark > currentmark){
+            hardmark = currentmark;
+            index = i - nplank + 2;
+        }
+    }
+    cout << index;
+
+
+
+}

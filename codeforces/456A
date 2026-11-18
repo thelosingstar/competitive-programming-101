@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 int main(){
     int testcases = 0 ,qual = 0;
     bool win_con = 0;

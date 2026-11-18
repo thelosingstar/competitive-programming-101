@@ -17,7 +17,6 @@ int main(){
             streakO = 1;
         }
     
-    
     }
     if(streakO >= 7){
         cout << "YES";

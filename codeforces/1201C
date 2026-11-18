@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+void solve();
+int main(){
+    solve();
+}
+
+void solve(){
+    long long arrayNO = 0LL , operations = 0LL , temp = 0LL , high = 0LL, low = 0LL, mid = 0LL, opersum = 0LL , answer = 0LL;
+    vector<long long> arrayV{};
+    cin >> arrayNO >> operations;
+    for(int i = 0; i < arrayNO; i++){
+        cin >> temp;
+        arrayV.push_back(temp);
+    }
+    sort(arrayV.begin(), arrayV.end());
+    high = arrayV[arrayV.size() - 1] + operations;
+    low = arrayV[((arrayNO + 1) / 2) - 1];
+    while(low <= high){
+        mid = (high + low) / 2;
+        opersum = 0LL;
+        for(int i = arrayNO/2; i < arrayNO; i++){
+            if(arrayV[i] < mid){
+                opersum += mid - arrayV[i]; 
+            }
+        }
+        if(opersum > operations){
+            high = mid - 1;
+        }
+        else if(opersum <= operations){
+            low = mid + 1;
+            answer = mid;
+        }
+    }
+    cout << answer << endl;
+}

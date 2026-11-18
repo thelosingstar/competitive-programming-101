@@ -6,7 +6,6 @@ int main(){
     long long n , m , a;
     cin >> n >> m >> a;
 
-
     double result1 = ceil((double)n / a);
     double result2 = ceil((double)m / a); // we have to use m on either m or a or the computer will discard the decimal before ceil works
     double result = result1 * result2;

@@ -6,7 +6,6 @@ int main(){
     int test,case1,case2,case3;
     cin >> test;
     vector<int> numbers{};
-
     for(int i = 0; i < test; i++){
         cin >> case1 >> case2 >> case3;
         numbers.push_back(case1);

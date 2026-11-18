@@ -4,7 +4,6 @@ void solve();
 int main(){
     solve();
 }
-
 void solve(){
     long long arrayNO = 0LL , operations = 0LL , temp = 0LL , high = 0LL, low = 0LL, mid = 0LL, opersum = 0LL , answer = 0LL;
     vector<long long> arrayV{};

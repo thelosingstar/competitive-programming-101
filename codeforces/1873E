@@ -8,7 +8,6 @@ int main(){
         solve();
     }
 }
-
 void solve(){
     long long coralColumns = 0LL , wateruse = 0LL , temp = 0LL , low = 0LL , high = 0LL, mid = 0LL ,water_sum = 0LL , answer = 0LL;
     vector<long long> coral{}; 

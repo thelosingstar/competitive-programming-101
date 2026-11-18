@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+void solve();
+int main(){
+    int testcases = 0;
+    cin >> testcases;
+    for(int i = 0; i < testcases; i++){
+        solve();
+    }
+}
+
+void solve(){
+    long long coralColumns = 0LL , wateruse = 0LL , temp = 0LL , low = 0LL , high = 0LL, mid = 0LL ,water_sum = 0LL , answer = 0LL;
+    vector<long long> coral{}; 
+    cin >> coralColumns >> wateruse;
+    for(int i = 0; i < coralColumns; i++){
+        cin >> temp;
+        coral.push_back(temp);
+    }
+    sort(coral.begin(),coral.end(),greater<int>());
+    high = coral[0] + wateruse;
+    low = 1;
+    while(low <= high){
+        mid = (high + low)/2;
+        water_sum = 0;
+        for(int i = 0; i < coralColumns; i++){
+            if(coral[i] < mid){
+                water_sum += mid - coral[i];
+            }
+        }
+        if(water_sum > wateruse){
+            high = mid - 1;
+        }
+        else if(water_sum <= wateruse){
+            low = mid + 1;
+            answer = mid;
+        }
+    }
+    cout << answer << endl;
+}

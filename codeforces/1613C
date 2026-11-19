@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+void solve();
+int main(){
+    int testcases = 0;
+    cin >> testcases;
+    for(int i = 0; i < testcases; i++){
+        solve();
+    }
+}
+
+void solve(){
+    long long low = 0LL , high = 0LL , monoA = 0LL, monoD = 0LL , temp = 0LL , mid = 0LL , damageSum = 0LL , duration = 0LL;
+    vector<long long> monoV {};
+    cin >> monoA >> monoD;    
+    for(int i = 0; i < monoA; i++){
+        cin >> temp;
+        monoV.push_back(temp);
+    }
+    high = 2e18;
+    low = 1LL;
+    mid = (high+low)/2;
+    duration = mid;
+    while(low <= high){
+        mid = low + (high-low)/2;
+        damageSum = 0LL;
+        for(long long i = 0LL; i <= monoA - 1; i++){
+            if(damageSum < monoD){
+                if(i == monoA - 1){
+                    damageSum += mid;
+                }
+                else if(min(monoD , monoV[i + 1] - monoV[i]) > 0){
+                    damageSum += min(mid , monoV[i + 1] - monoV[i]);
+                }
+            }
+            else{
+                break;
+            }
+        }
+        if(damageSum >= monoD){
+            high = mid - 1;
+            duration = mid;
+        }
+        else if(damageSum < monoD){
+            low = mid + 1;
+        }
+    }
+    cout << duration << endl;
+}
